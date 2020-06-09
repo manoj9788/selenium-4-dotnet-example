@@ -94,10 +94,7 @@ namespace Selenium_4_dotnet
         [Test]
         public async Task TestInterceptNetwork()
         {
-            await _session.Network.Enable(new EnableCommandSettings()
-            {
-                MaxTotalBufferSize = 100000000
-            });            
+            await _session.Network.Enable(new EnableCommandSettings());
             await _session.Network.SetBlockedURLs(new SetBlockedURLsCommandSettings()
             {
                 Urls = new string[] { "*://*/*.css" }
