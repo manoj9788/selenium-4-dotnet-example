@@ -119,6 +119,19 @@ namespace Selenium_4_dotnet
             Thread.Sleep(10000);
             loadSync.Wait(TimeSpan.FromSeconds(5));
         }
+        /// <summary>
+        /// By pass Service worker with Selenium 4 .NET Core
+        /// </summary>
+        [Test]
+        public async Task TestBypassServiceWorker()
+        {
+            await _session.Network.Enable(new EnableCommandSettings());
+            await _session.Network.SetBypassServiceWorker(new SetBypassServiceWorkerCommandSettings()
+            {
+                Bypass = true,
+            });
+
+        }
         [TearDown]
         public void TearDown()
         {
